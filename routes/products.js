@@ -12,4 +12,5 @@ router
     .route('/:id')
         .get(controller.getSingleProd)
         .delete(controller.delProd)
+        .patch(controller.editProd)
 export default router      

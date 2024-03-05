@@ -25,5 +25,12 @@ const delProduct=async(id)=>{
    return getProducts(item)
 }
 
+const editProduct=async(prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3,prodID)=>{
+    await pool.query(`
+    UPDATE products SET prodName=?, quantity=?, description=?, category=?, price=?, prodURL=?, prodURL1=?, prodURL2=?, prodURL3=? 
+    WHERE prodID=? `,
+     [prodName,quantity,description,category,price, prodURL,prodURL1,prodURL2,prodURL3,prodID])
+     return getProducts()
+}
 
-export {getProducts,getSingleProduct,addProduct,delProduct}
+export {getProducts,getSingleProduct,addProduct,delProduct,editProduct}
