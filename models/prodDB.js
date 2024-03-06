@@ -1,5 +1,6 @@
 import {pool} from "../config/config.js";
 
+
 const getProducts= async()=>{
     const [result]=await pool.query(`
    SELECT * FROM products `)
@@ -32,5 +33,11 @@ const editProduct=async(prodName,quantity,description,category,price,prodURL,pro
      [prodName,quantity,description,category,price, prodURL,prodURL1,prodURL2,prodURL3,prodID])
      return getProducts()
 }
+
+
+
+
+
+
 
 export {getProducts,getSingleProduct,addProduct,delProduct,editProduct}

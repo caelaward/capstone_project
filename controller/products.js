@@ -1,4 +1,4 @@
-import { getProducts,getSingleProduct,addProduct,delProduct,editProduct} from "../models/database.js"
+import { getProducts,getSingleProduct,addProduct,delProduct,editProduct} from "../models/prodDB.js"
 
 export default{
     getProds:async(req,res)=>{
@@ -14,7 +14,7 @@ export default{
     },
     delProd:async(req,res)=>{
          res.send(await delProduct(req.params.id))
-        },
+    },
     editProd:async(req,res)=>{
         const [item]=await getSingleProduct(+req.params.id)
      
@@ -34,5 +34,6 @@ export default{
      
         res.json(await getProducts())
      
-     }  
+    } 
+
     }
