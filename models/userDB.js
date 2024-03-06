@@ -19,7 +19,7 @@ const addUser = async(userName,userSurname,userRole,email,password)=>{
     VALUES(?,?,?,?,?)`,[userName,userSurname,userRole,email,password])
 }
 
-const editUser=async(userName,userSurname,userRole,email,password, )=>{
+const editUser=async(userName,userSurname,userRole,email,password,userID)=>{
     await pool.query(`
     UPDATE users SET userName=?, userSurname=?, userRole=?, email=?, password=?
     WHERE userID=? `,
