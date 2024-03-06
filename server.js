@@ -2,7 +2,9 @@ import express from 'express'
 import {config} from 'dotenv'
 import productRouter from './routes/products.js'
 import userRouter from './routes/users.js'
-import jwt from 'jsonwebtoken'
+import loginRouter from './routes/login.js'
+import auth from './middleware/middleware.js'
+
 config()
  
 
@@ -18,6 +20,7 @@ app.use(express.static('views'))
 
 app.use('/products',productRouter)
 app.use('/users',userRouter)
+app.use('/login',auth,loginRouter)
 
 app.listen(PORT,()=>{
     console.log(`This is running on http://localhost:${PORT}`);

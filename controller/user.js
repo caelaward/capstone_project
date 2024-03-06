@@ -41,6 +41,9 @@ export default{
     },
     deleteUser:async(req,res)=>{
         res.send(await delUser(req.params.id)) 
+    },
+    login:async(req,res)=>{
+        
     }
 
     }

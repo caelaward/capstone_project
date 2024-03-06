@@ -19,7 +19,7 @@ const addUser = async(userName,userSurname,userRole,email,password)=>{
     VALUES(?,?,?,?,?)`,[userName,userSurname,userRole,email,password])
 }
 
-const editUser=async(userName,userSurname,userRole,email,password,userID)=>{
+const editUser=async(userName,userSurname,userRole,email,password, )=>{
     await pool.query(`
     UPDATE users SET userName=?, userSurname=?, userRole=?, email=?, password=?
     WHERE userID=? `,
@@ -33,8 +33,14 @@ const delUser=async(id)=>{
    return getUsers(user)
 }
 
+const checkUser = async(userName)=>{
+    const [[{password}]]= await pool.query(`
+    SELECT password From users WHERE userName =?`,[userName])
+        return password
+    } 
 
 
 
 
-export {getUsers,getSingleUser,addUser,editUser,delUser}
+
+export {getUsers,getSingleUser,addUser,editUser,delUser,checkUser}

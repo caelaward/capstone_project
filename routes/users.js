@@ -12,4 +12,5 @@ router
       .get(controller.getUser)
       .patch(controller.updateUser)
       .delete(controller.deleteUser)
+      
 export default router   
