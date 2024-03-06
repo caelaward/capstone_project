@@ -37,7 +37,7 @@ const checkUser = async(userName)=>{
     const [[{password}]]= await pool.query(`
     SELECT password From users WHERE userName =?`,[userName])
         return password
-    } 
+ } 
 
 
 
