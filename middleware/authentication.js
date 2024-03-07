@@ -18,7 +18,7 @@ const auth = async(req,res,next)=>{
             res.send({
                 // key name,value of the key
                 token:token,
-                msg:"you have logged in"
+                msg:"you have logged in" 
             }) 
            next()
         }else{

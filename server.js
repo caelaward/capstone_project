@@ -4,6 +4,7 @@ import productRouter from './routes/products.js'
 import userRouter from './routes/users.js'
 import loginRouter from './routes/login.js'
 import cartRouter from './routes/cart.js'
+import cors from 'cors'
 import {auth,authenticate} from './middleware/authentication.js'
 
 config()
@@ -13,7 +14,7 @@ const PORT=process.env.PORT || 8200
 
 const app=express()
 
-// app.use(cors())
+app.use(cors())
 
 app.use(express.json())
 
