@@ -14,7 +14,7 @@ const auth = async(req,res,next)=>{
             const token = jwt.sign({userName:userName}, //jsonwebtoken does not authenticate but they allow the user access as long as they have a token
             process.env.SECRET_KEY,{expiresIn:'1h'}) //secret key is in the .env file
             // true only backend can access
-            // res.cookie('jwt',token,{httpOnly:false})   
+            res.cookie('jwt',token,{httpOnly:false})   
             res.send({
                 // key name,value of the key
                 token:token,
@@ -33,9 +33,9 @@ const authenticate = (req,res,next) =>{
     let tokenInHeader=cookie && cookie.split('=')[1]
     if (tokenInHeader===null)res.sendStatus(401)
     jwt.verify(tokenInHeader,process.env.SECRET_KEY,
-    (err,user)=>{
+    (err,userName)=>{
         if(err) return res.sendStatus(403)
-        req.user=user
+        req.userName=userName
         next()
     } )
 }

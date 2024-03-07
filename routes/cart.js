@@ -11,6 +11,6 @@ router
 router
     .route('/:id')
     .get(controller.getSingleCartItem)
-    .get(controller.updateCart)
+    
 
 export default router
