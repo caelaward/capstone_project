@@ -4,7 +4,7 @@ import productRouter from './routes/products.js'
 import userRouter from './routes/users.js'
 import loginRouter from './routes/login.js'
 import cartRouter from './routes/cart.js'
-import auth from './middleware/middleware.js'
+import {auth,authenticate} from './middleware/authentication.js'
 
 config()
  
@@ -22,7 +22,7 @@ app.use(express.static('views'))
 app.use('/products',productRouter)
 app.use('/users',userRouter)
 app.use('/login',auth,loginRouter)
-app.use('/cart',cartRouter)
+app.use('/cart',authenticate,cartRouter)
 
 app.listen(PORT,()=>{
     console.log(`This is running on http://localhost:${PORT}`);
