@@ -1,18 +1,16 @@
 <template>
-  <div class="home">
-   <h1>home</h1>
+  <div class="contact">
+   <h1>contact</h1>
    
   </div>
 </template>
 
 <script>
-
-
-
 export default {
 
-  components: {
-    
-  }
 }
 </script>
+
+<style>
+
+</style>

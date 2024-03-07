@@ -1,18 +1,16 @@
 <template>
-  <div class="home">
-   <h1>home</h1>
+  <div class="checkout">
+   <h1>checkout</h1>
    
   </div>
 </template>
 
 <script>
-
-
-
 export default {
 
-  components: {
-    
-  }
 }
 </script>
+
+<style>
+
+</style>
