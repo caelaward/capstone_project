@@ -8,7 +8,6 @@
       <tr>
         <th scope="col">House</th>
         <th scope="col">Description</th>
-        <th scope="col">Qauntity</th>
         <th scope="col">Category</th>
         <th scope="col">Img</th>
       </tr>
@@ -17,7 +16,6 @@
       <tr scope="row">
         <td>{{house.prodName}}</td>
         <td>{{house.description}}</td>
-        <td>{{house.quantity}}</td>
         <td>{{house.category}}</td>
         <td><img :src="house.prodUrl" ></td>
         <td>
