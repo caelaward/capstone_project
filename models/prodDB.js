@@ -14,10 +14,10 @@ const getSingleProduct=async(id)=>{
 return item
 }
 
-const addProduct=async(prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3)=>{
+const addProduct=async(prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3)=>{
     await pool.query(`
-    INSERT INTO products (prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3) values(?,?,?,?,?,?,?,?,?) `,
-    [prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3])
+    INSERT INTO products (prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3) values(?,?,?,?,?,?,?,?,?) `,
+    [prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3])
 }
 
 const delProduct=async(id)=>{
@@ -26,11 +26,11 @@ const delProduct=async(id)=>{
    return getProducts(item)
 }
 
-const editProduct=async(prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3,prodID)=>{
+const editProduct=async(prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3,prodID)=>{
     await pool.query(`
-    UPDATE products SET prodName=?, quantity=?, description=?, category=?, price=?, prodURL=?, prodURL1=?, prodURL2=?, prodURL3=? 
+    UPDATE products SET prodName=?, description=?, category=?, price=?, prodURL=?, prodURL1=?, prodURL2=?, prodURL3=? 
     WHERE prodID=? `,
-     [prodName,quantity,description,category,price, prodURL,prodURL1,prodURL2,prodURL3,prodID])
+     [prodName,description,category,price, prodURL,prodURL1,prodURL2,prodURL3,prodID])
      return getProducts()
 }
 
