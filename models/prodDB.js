@@ -16,7 +16,7 @@ return item
 
 const addProduct=async(prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3)=>{
     await pool.query(`
-    INSERT INTO products (prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3) values(?,?,?,?,?,?,?,?,?) `,
+    INSERT INTO products (prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3) values(?,?,?,?,?,?,?,?) `,
     [prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3])
 }
 
