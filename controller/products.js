@@ -8,8 +8,8 @@ export default{
         res.send(await getSingleProduct(+req.params.id))
     },
     addProds:async(req,res)=>{
-        const { prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 } = req.body;
-        const post = await addProduct(prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3);
+        const { prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 } = req.body;
+        const post = await addProduct(prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3);
         res.send(await getProducts());  
     },
     delProd:async(req,res)=>{
@@ -18,10 +18,9 @@ export default{
     editProd:async(req,res)=>{
         const [item]=await getSingleProduct(+req.params.id)
      
-        let {prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 }=req.body
+        let {prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 }=req.body
      
         prodName ? prodName=prodName: {prodName}=item
-        quantity ? quantity=quantity: {quantity}=item
         description ? description=description: {description}=item
         category ? category=category: {category}=item
         price ? price=price: {price}=item
@@ -30,7 +29,7 @@ export default{
         prodURL2 ? prodURL2=prodURL2: {prodURL2}=item
         prodURL3 ? prodURL3=prodURL3: {prodURL3}=item
      
-        await editProduct(prodName,quantity,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 ,+req.params.id)
+        await editProduct(prodName,description,category,price,prodURL,prodURL1,prodURL2,prodURL3 ,+req.params.id)
      
         res.json(await getProducts())
      
