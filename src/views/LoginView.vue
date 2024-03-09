@@ -1,7 +1,7 @@
 <template>
   <div class="login">
    <h1>login</h1>
-    <input type="text" placeholder="username" name="username" required v-model="username"><br><br>
+    <input type="text" placeholder="username" name="userName" required v-model="userName"><br><br>
     <input type="password" placeholder="password" name="password" required v-model="password">
     <br>
     <br>
@@ -16,7 +16,7 @@ export default {
   data(){
         // as typing data gets saved here 
             return{
-                username:'',
+                userName:'',
                 password:''
             }
         },

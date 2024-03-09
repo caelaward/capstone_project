@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
+import router from '@/router'
 const BASE_URL='http://localhost:8258'
-// axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true
 
 export default createStore({
   state: {
@@ -46,7 +47,7 @@ export default createStore({
     // replace will redirect but not allow you to go back
     // push keeps browser history of when visiting that page.. redirects you but able to press back
     await router.push('/')
-    window.location.reload('/')
+    window.location.reload()
     // reloads page 
     // window.location.reload()
   }
