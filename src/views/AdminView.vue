@@ -17,7 +17,7 @@
         <td>{{house.prodName}}</td>
         <td>{{house.description}}</td>
         <td>{{house.category}}</td>
-        <td><img :src="house.prodUrl" ></td>
+        <td><img :src="house.prodURL" class="w-25" ></td>
         <td>
           <button type="button" class="btn btn-success me-2" @click="delHouse(house.prodID)">Delete</button>
           <button type="button" class="btn btn-success" @click="editHouse(house.prodID)">Edit</button>

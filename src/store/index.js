@@ -7,7 +7,8 @@ axios.defaults.withCredentials = true
 export default createStore({
   state: {
     houses:[],
-    loggedIn:false 
+    loggedIn:false,
+    singleHouse:[]
   },
   getters: {
   },
@@ -17,6 +18,9 @@ export default createStore({
     },
     setLogged(state,data){
       state.loggedIn=data
+     },
+     setSingleH(state,data){
+      state.singleHouse=data
      }
   },
   actions: {
@@ -24,6 +28,11 @@ export default createStore({
       let {data} = await axios.get(BASE_URL+'/products');
        console.log(data);
       commit("setHouses", data);
+    },
+    async getSingleHouse({commit},prodID) {
+      let {data} = await axios.get(BASE_URL+'/products/'+prodID);
+       console.log(data);
+      commit("setSingleH", data);
     },
     async deleteHouses({commit},prodID){
       await axios.delete(BASE_URL+'/products/'+prodID)
