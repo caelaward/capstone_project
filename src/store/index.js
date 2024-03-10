@@ -50,6 +50,13 @@ export default createStore({
     window.location.reload()
     // reloads page 
     // window.location.reload()
+  },
+  async addUser({ commit },newuser) {
+    const {data} =await axios.post(BASE_URL+'/users/',newuser);
+    // new user is the this.$data that was saved
+    // reloads page 
+    alert(data.msg)
+    window.location.reload()
   }
   },
   modules: {
