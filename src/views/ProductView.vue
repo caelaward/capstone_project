@@ -1,13 +1,13 @@
 <template>
-  <div class="container-fluid ">
+  <div class="container-fluid">
    <h1>single product</h1>
-   <div class="row row-cols-2 row-cols-md-2 pt-3 justify-content-center" >
+   <div class="row pt-3 ">
     
-    <div v-for="house in $store.state.singleHouse" :key="house.prodID" >
+    <div v-for="house in $store.state.singleHouse" :key="house.prodID"  id="containedElements">
 
       <div class="col"> 
         <div class="card w-100" >
-          <img :src="house.prodURL" class="card-img-top" alt="">
+          <img :src="house.prodURL" class="card-img-top " alt="">
           <div class="card-body">
             <h5 class="card-title">{{house.prodName}}</h5>
             <p class="card-text">R{{house.price}}</p>
@@ -16,8 +16,8 @@
         </div>
       </div>
 
-    
-       <div class=" scroll-container mt-2 mb-2  " id="scroller">
+        
+       <div class="col scroll-container w-75  h-50 " id="scroller">
        <img :src="house.prodURL1"  alt="" >
        <img :src="house.prodURL2"  alt="" >
        <img :src="house.prodURL3"  alt="" >
@@ -45,10 +45,12 @@ export default {
 
 <style scoped>
 #scroller {
-  background-color: #8b8b7c;
+  /* background-color: #8b8b7c; */
   overflow-y: auto; /* overflow-y.. vertical scrolling */
   padding: 10px;
-  height: 300px; 
+  padding-top:0%;
+  margin-top:0%;
+  /* height: 300px;  */
 }
 
 #scroller img {
@@ -57,10 +59,14 @@ export default {
   width: 100%;
 }
 
-/* .card{
-  float: right;
-  padding-top: 0%;
+#containedElements{
+  /* display: flex !important; */
 
-} */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left:10%;
+
+}
+
 
 </style>
