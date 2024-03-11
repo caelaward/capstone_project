@@ -16,7 +16,7 @@ const auth = async(req,res,next)=>{
             // true only backend can access
             res.cookie('jwt',token,{httpOnly:false})   
             res.send({
-                // key name,value of the key
+                // key name,value of the    
                 token:token,
                 msg:"you have logged in" 
             }) 
