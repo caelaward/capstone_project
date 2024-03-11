@@ -66,6 +66,14 @@ export default createStore({
     // reloads page 
     alert(data.msg)
     window.location.reload()
+  },
+  async logout(context){
+    let cookies=$cookies.keys()
+    console.log(cookies);
+    $cookies.remove('jwt')
+    window.location.reload()
+    // let {data}=await axios.delete(BASE_URL+'/logout')
+    alert("you have logged out")
   }
   },
   modules: {
