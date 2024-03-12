@@ -45,10 +45,9 @@ export default createStore({
     async updateHouse({commit},update){
       await axios.patch(BASE_URL+'/products/'+update.prodID,update)
       window.location.reload()
-    },
+    }, 
     async addhouse({commit},newhouse){
-      let {data} =await axios.post(BASE_URL+'/products',newhouse);
-      console.log(data);
+      await axios.post(BASE_URL+'/products',newhouse); 
       window.location.reload() 
   },
   async checkUser({commit},user) {
@@ -83,6 +82,14 @@ export default createStore({
     let {data} = await axios.get(BASE_URL+'/users');
      console.log(data);
     commit("setUsers", data);
+  },
+  async deleteUsers({commit},userID){
+    await axios.delete(BASE_URL+'/users/'+userID)
+    window.location.reload()
+  },
+  async updateUser({commit},update){
+    await axios.patch(BASE_URL+'/users/'+update.userID,update)
+    window.location.reload()
   }
   },
   modules: {
