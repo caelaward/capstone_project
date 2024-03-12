@@ -32,7 +32,7 @@ const editProduct=async(prodName,description,category,price,prodURL,prodURL1,pro
     WHERE prodID=? `,
      [prodName,description,category,price, prodURL,prodURL1,prodURL2,prodURL3,prodID])
      return getProducts()
-}
+} 
 
 
 
