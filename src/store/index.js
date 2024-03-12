@@ -8,7 +8,8 @@ export default createStore({
   state: {
     houses:[],
     loggedIn:false,
-    singleHouse:[]
+    singleHouse:[],
+    users:[]
   },
   getters: {
   },
@@ -21,7 +22,10 @@ export default createStore({
      },
      setSingleH(state,data){
       state.singleHouse=data
-     }
+     },
+     setUsers(state,data){
+      state.users=data
+    }
   },
   actions: {
     async getHouses({commit}) {
@@ -74,6 +78,11 @@ export default createStore({
     window.location.reload()
     // let {data}=await axios.delete(BASE_URL+'/logout')
     alert("you have logged out")
+  },
+  async getUsers({commit}) {
+    let {data} = await axios.get(BASE_URL+'/users');
+     console.log(data);
+    commit("setUsers", data);
   }
   },
   modules: {

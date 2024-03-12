@@ -2,6 +2,34 @@
   <div class="admin">
 
     <h1>admin</h1>
+    
+    <div class="scroll-container" id="scroller2">
+      <input type="text" placeholder="House" v-model="prodName" required >
+   
+   
+      <input type="text" placeholder="category" v-model="category" required >
+   
+   
+      <input type="number" placeholder="price" v-model="price" required >
+   
+   
+      <input type="text" placeholder="description" v-model="description" required >
+   
+   
+      <input type="text" placeholder="prodURL" v-model="prodURL" required >
+   
+   
+      <input type="text" placeholder="prodURL1" v-model="prodURL1" required >
+   
+   
+      <input type="text" placeholder="prodURL2" v-model="prodURL2" required >
+   
+   
+      <input type="text" placeholder="prodURL3" v-model="prodURL3" required >
+    </div>
+     <button type="button" class="btn btn-secondary me-2 mt-2" @click="addHouse">add</button>
+
+
 
     <table class="table table-hover ">
     <thead>
@@ -11,7 +39,7 @@
         <th scope="col">Category</th>
         <th scope="col">Img</th>
       </tr>
-    </thead>
+    </thead> 
     <tbody v-for="house in $store.state.houses" :key="house.prodID">
       <tr scope="row">
         <td>{{house.prodName}}</td>
@@ -44,7 +72,8 @@
   <button type="button" class="btn btn-secondary m-2 " data-bs-toggle="modal" :data-bs-target="'#exampleModal2'+house.prodID"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
- </svg></button>    
+ </svg>
+ </button>    
          <div class="modal fade" :id="'exampleModal2'+house.prodID" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog">
           <div class="modal-content">
@@ -53,7 +82,7 @@
            </div>
            <div class="modal-body" modal-body>
              <input type="text" placeholder="prodName.." data-name name="prodName" id="prodName" v-model="prodName">
-             <input type="text" placeholder="quantity.." data-description name="quantity" id="quantity" v-model="quantity">
+             <input type="text" placeholder="description.." data-description name="description" id="description" v-model="description">
              <input type="text" placeholder="price.." data-amount name="price" id="price" v-model="price">
              <input type="text" placeholder="category.." data-category name="category" id="category" v-model="category">
              <input type="text" placeholder="url..." data-url name="prodURL" id="prodURL" v-model="prodURL">
@@ -69,15 +98,7 @@
       </tr>
        </tbody>
     </table>
-    <input type="text" placeholder="House" v-model="prodName" required >
-      <input type="text" placeholder="category" v-model="category" required >
-      <input type="number" placeholder="price" v-model="price" required >
-      <input type="text" placeholder="description" v-model="description" required ><br>
-      <input type="text" placeholder="prodURL" v-model="prodURL" required ><br>
-      <input type="text" placeholder="prodURL1" v-model="prodURL1" required ><br>
-      <input type="text" placeholder="prodURL2" v-model="prodURL2" required ><br>
-      <input type="text" placeholder="prodURL3" v-model="prodURL3" required ><br>
-      <button type="button" class="btn btn-success me-2 mt-2" @click="addHouse">add</button>
+
   </div>
 </template> 
 
@@ -111,8 +132,8 @@ export default {
         let edit={
           prodID:id,
           prodName:this.prodName,
-          quantity:this.quantity,
-          amount:this.amount,
+          description:this.description,
+          price:this.price,
           category:this.category,
           prodUrl:this.prodUrl
         }
@@ -126,5 +147,17 @@ export default {
 </script>
 
 <style>
+ #scroller2 {
+  background-color: #ededcf;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+  
+}
+
+::-webkit-scrollbar{
+  display:none
+}
+
 
 </style>

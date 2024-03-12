@@ -7,6 +7,7 @@
     <!-- <router-link to="/product">Product</router-link> | -->
     <router-link to="/admin">Admin</router-link> |
     <router-link to="/checkout">Checkout</router-link> |
+    <router-link to="/user">user</router-link> |
     <router-link to="/contact">Contact</router-link> |   
    <router-link v-if="!$cookies.get('jwt')" to="/login" >Login</router-link>
   </nav>
