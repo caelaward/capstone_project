@@ -40,7 +40,4 @@ const checkUser = async(userName)=>{
  } 
 
 
-
-
-
 export {getUsers,getSingleUser,addUser,editUser,delUser,checkUser}
