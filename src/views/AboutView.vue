@@ -12,20 +12,20 @@
     <div class="col">
     <p>
       <h2>Our mission</h2>
-We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
+     <p>We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
     </div>
     </div>
 
       <h2 class="mt-5 mb-4">What we offer</h2>
     <div class="row">
-    <div class="col me-2" id="offers"><h4>Wide Selection</h4><p> Explore a diverse range of properties including single-family homes, condos, townhouses, and more.</p></div>
+    <div class="col me-2" id="offers"><img src="https://i.ibb.co/fnWxRXb/variety-house.jpg" class="imgtransaction"> <h4>Wide Selection</h4><p> Explore a diverse range of properties including single-family homes, condos, townhouses, and more.</p></div>
 
-    <div class="col me-2" id="offers"><h4>Expert Advice</h4><p> Our team of experienced real estate professionals is here to offer expert advice and guidance tailored to your unique needs and preferences.</p></div>
+    <div class="col me-2" id="offers"><img src="https://i.ibb.co/Mn2sTd0/advice-img.webp" class="imgtransaction" ><h4>Expert Advice</h4><p> Our team of experienced real estate professionals is here to offer expert advice and guidance tailored to your unique needs and preferences.</p></div>
 
-    <div class="col" id="transaction_div"><h4>Seamless Transactions</h4><p> From initial search to closing the deal, we ensure a smooth and hassle-free experience for both buyers and sellers.</p></div>
+    <div class="col" id="offers"><img src="https://i.ibb.co/ncV7Z5g/transaction-Img.jpg" class="imgtransaction"><h4>Seamless Transactions</h4><p> From initial search to closing the deal, we ensure a smooth and hassle-free experience for both buyers and sellers.</p></div>
 
     </div>
-    <!-- <img src="https://i.ibb.co/ncV7Z5g/transaction-Img.jpg"> -->
+    
 
  </div>
 </template>
@@ -43,18 +43,16 @@ export default {
 
 #offers{
   border:solid 1px  black;
-  padding:2rem;
+  padding:1rem;
   border-radius:10px;
   margin-top:1rem
   }
 
-  #transaction_div{
-  border:solid 1px  black;
-  padding:2rem;
-  border-radius:10px;
-  margin-top:1rem;
-  /* background:url("https://i.ibb.co/ncV7Z5g/transaction-Img.jpg");
-  background-image: 20vh; */
+ .imgtransaction{
+  height:20vh;
+  width:100%;
+  border-radius:5px;
+  margin-bottom:1rem
   }
 
 </style>
