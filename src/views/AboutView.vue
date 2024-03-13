@@ -10,7 +10,6 @@
     <div class="row">
       <img src="https://i.ibb.co/gJhND9y/prod2.jpg" class="col w-50 img-fluid p-0 ">
     <div class="col">
-    <p>
       <h2>Our mission</h2>
      <p>We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
     </div>
