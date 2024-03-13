@@ -2,67 +2,58 @@
   <div class="admin">
 
     <h1>admin</h1>
-    
-    <div class="scroll-container" id="scroller2">
-      <input type="text" placeholder="House" v-model="prodName" required >
-   
-   
-      <input type="text" placeholder="category" v-model="category" required >
-   
-   
-      <input type="number" placeholder="price" v-model="price" required >
-   
-   
-      <input type="text" placeholder="description" v-model="description" required >
-   
-   
-      <input type="text" placeholder="prodURL" v-model="prodURL" required >
-   
-   
-      <input type="text" placeholder="prodURL1" v-model="prodURL1" required >
-   
-   
-      <input type="text" placeholder="prodURL2" v-model="prodURL2" required >
-   
-   
-      <input type="text" placeholder="prodURL3" v-model="prodURL3" required >
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  add
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <input type="text" placeholder="prodName.." data-name name="prodName"  v-model="prodName"  id="modal_Input">
+             <input type="text" placeholder="description.." data-description name="description"  v-model="description" id="modal_Input">
+             <input type="number" placeholder="price.." data-amount name="price"  v-model="price" id="modal_Input">
+             <input type="text" placeholder="category.." data-category name="category"  v-model="category" id="modal_Input">
+             <input type="text" placeholder="url..." data-url name="prodURL"  v-model="prodURL" id="modal_Input">
+             <input type="text" placeholder="url1..." data-url1 name="prodURL1"  v-model="prodURL1" id="modal_Input">
+             <input type="text" placeholder="url2..." data-url2 name="prodURL2"  v-model="prodURL2" id="modal_Input">
+             <input type="text" placeholder="url3..." data-url2 name="prodURL3"  v-model="prodURL3" id="modal_Input">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" @click="addHouse">Save changes</button>
+      </div>
     </div>
-     <button type="button" class="btn btn-secondary me-2 mt-2" @click="addHouse">add</button>
+  </div>
+</div>
 
-
-
-    <table class="table table-hover ">
-    <thead>
-      <tr>
-        <th scope="col">House</th>
-        <th scope="col">Description</th>
-        <th scope="col">Category</th>
-        <th scope="col">Img</th>
+    <div class="container">
+    <table class="table table-hover " id="prodTable">
+    <thead class="table-secondary" >
+      <tr scope="col">
+        <th >House</th>
+        <th >Description</th>
+        <th >Category</th>
+        <th >Price</th>
+        <th >Img</th>
+        <th ></th>
       </tr>
     </thead> 
     <tbody v-for="house in $store.state.houses" :key="house.prodID">
       <tr scope="row">
-        <td>{{house.prodName}}</td>
-        <td>{{house.description}}</td>
-        <td>{{house.category}}</td>
+        <td id="table_info">{{house.prodName}}</td>
+        <td id="table_info">{{house.description}}</td>
+        <td id="table_info">{{house.category}}</td>
+        <td id="table_info">R{{house.price}}</td>
         <td><img :src="house.prodURL" class="w-25" ></td>
-        <!-- <td>
-          <button type="button" class="btn btn-success me-2" @click="delHouse(house.prodID)">Delete</button>
-          <button type="button" class="btn btn-success" @click="editHouse(house.prodID)">Edit</button>
-        </td>
-      </tr>
-    </tbody>
-    </table>
-     <input type="text" placeholder="House" v-model="prodName" required >
-      <input type="text" placeholder="category" v-model="category" required >
-      <input type="number" placeholder="price" v-model="price" required >
-      <input type="text" placeholder="description" v-model="description" required ><br>
-      <input type="text" placeholder="prodURL" v-model="prodURL" required ><br>
-      <input type="text" placeholder="prodURL1" v-model="prodURL1" required ><br>
-      <input type="text" placeholder="prodURL2" v-model="prodURL2" required ><br>
-      <input type="text" placeholder="prodURL3" v-model="prodURL3" required ><br>
-      <button type="button" class="btn btn-success me-2 mt-2" @click="addHouse">add</button>
-  </div> -->
+       
  <td>
   <button type="button" class="btn btn-secondary " @click="delHouse(house.prodID)">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  fill="currentColor" class="bi bi-trash3 " viewBox="0 0 16 16">
@@ -81,13 +72,13 @@
              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
            </div>
            <div class="modal-body" modal-body>
-             <input type="text" placeholder="prodName.." data-name name="prodName" id="prodName" v-model="prodName">
-             <input type="text" placeholder="description.." data-description name="description" id="description" v-model="description">
-             <input type="text" placeholder="price.." data-amount name="price" id="price" v-model="price">
-             <input type="text" placeholder="category.." data-category name="category" id="category" v-model="category">
-             <input type="text" placeholder="url..." data-url name="prodURL" id="prodURL" v-model="prodURL">
+             <input type="text" placeholder="prodName.." data-name name="prodName"  v-model="prodName"  id="modal_Input">
+             <input type="text" placeholder="description.." data-description name="description"  v-model="description" id="modal_Input">
+             <input type="text" placeholder="price.." data-amount name="price"  v-model="price" id="modal_Input">
+             <input type="text" placeholder="category.." data-category name="category"  v-model="category" id="modal_Input">
+             <input type="text" placeholder="url..." data-url name="prodURL"  v-model="prodURL" id="modal_Input">
            </div>
-           <div class="modal-footer">
+           <div class="modal-footer" id="modalBtm">
              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
              <button type="button" data-modal class="btn btn-primary" save @click="editHouse(house.prodID)">Save changes</button>
            </div>
@@ -98,7 +89,7 @@
       </tr>
        </tbody>
     </table>
-
+  </div>
   </div>
 </template> 
 
@@ -147,6 +138,7 @@ export default {
 </script>
 
 <style>
+
  #scroller2 {
   background-color: #ededcf;
   overflow: auto;
@@ -159,5 +151,30 @@ export default {
   display:none
 }
 
+/* #modalBtm{
+  background-color:aqua;
+} */
+#modal_Input{
+  width: 100%;
+  margin-bottom: 1.25em;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.8em;
+  /* font-family: 'Inter', sans-serif; */
+  /* outline: none; */
+}
+#prodTable{
+  margin-top:2rem ;
+  border: solid 2px;
+  border-color:grey;
+  /* box-shadow: -2px 0px 26px rgba(0, 0, 0, 0.2); */
+}
+#table_info{
+  padding-top:2rem;
+}
+th{
+  padding: 30px !important;
+}
 
 </style>

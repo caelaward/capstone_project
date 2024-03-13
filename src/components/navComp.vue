@@ -22,6 +22,9 @@
          <li class="nav-item">
             <router-link to="/products" class="nav-link text-white" href="products">Products</router-link>
         </li>
+        <li class="nav-item">
+        <router-link to="/contact" class="nav-link text-white" href="contact">Contact</router-link>
+      </li>
       <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Admin
@@ -31,21 +34,18 @@
             <router-link to="/user" class="nav-link " href="user">Users Admin</router-link>
           </ul>
         </li>
-      <li class="nav-item">
-        <router-link to="/contact" class="nav-link text-white" href="contact">Contact</router-link>
-      </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <router-link v-if="!$cookies.get('jwt')" to="/login" class="nav-link text-white" href="login">Login</router-link>
-      </li>
-      <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Admin
+      </li> -->
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            login/signup
           </a>
           <ul class="dropdown-menu">
-            <router-link to="/admin" class="nav-link " href="admin">Products Admin</router-link>
-            <router-link to="/user" class="nav-link " href="user">Users Admin</router-link>
+            <router-link v-if="!$cookies.get('jwt')" to="/login" class="nav-link" href="login">Login</router-link>
+            <router-link to="/register" class="nav-link " href="register">Sign up</router-link>
           </ul>
-        </li> -->
+        </li>
       
       </div>
     </div>

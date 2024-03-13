@@ -1,8 +1,8 @@
 <template>
   <div class="container ">
 
-     <table class="table table-bordered">
-    <thead>
+     <table class="table table-bordered mt-5">
+    <thead >
       <tr>
         <th scope="col">User</th>
         <th scope="col">User Role</th>
