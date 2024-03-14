@@ -9,7 +9,7 @@
         <div class="card w-100" >
           <img :src="house.prodURL" class="card-img-top " alt="">
           <div class="card-body">
-            <h5 class="card-title">{{house.prodName}}</h5>
+            <h5 class="card-title">{{house.prodName}} Bloubergstrand</h5>
             <p class="card-text">R{{house.price}}</p>
             <p class="card-text">{{house.description}}</p>
           </div>
