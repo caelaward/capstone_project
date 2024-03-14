@@ -25,7 +25,7 @@ export default createStore({
      },
      setUsers(state,data){
       state.users=data
-    }
+    } 
   },
   actions: {
     async getHouses({commit}) {
@@ -67,8 +67,7 @@ export default createStore({
         // replace will redirect but not allow you to go back
         // push keeps browser history of when visiting that page..redirects you but able to press back
         window.location.reload()
-      
-    
+        
   },
   async addUser({ commit },newuser) {
     const {data} =await axios.post(BASE_URL+'/users/',newuser);
