@@ -33,9 +33,10 @@ const authenticate = (req,res,next) =>{
     let tokenInHeader=cookie && cookie.split('=')[1]
     if (tokenInHeader===null)res.sendStatus(401)
     jwt.verify(tokenInHeader,process.env.SECRET_KEY,
-    (err,userName)=>{
+    (err,userName,userRole)=>{
         if(err) return res.sendStatus(403)
         req.userName=userName
+        req.userRole=userRole
         next()
     } )
 }
