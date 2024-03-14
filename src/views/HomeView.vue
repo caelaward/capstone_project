@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <div class="scroll-container">
-  <img src="https://i.ibb.co/41L5X3d/prod1.jpg" alt="Cinque Terre">
-  <img src="https://i.ibb.co/F80jNRS/prod2-1.webp" alt="Forest">
+  <div class="scroll-container">
+  <!-- <img src="https://i.ibb.co/41L5X3d/prod1.jpg" alt="Cinque Terre">
+  <img src="https://i.ibb.co/F80jNRS/prod2-1.webp" alt="Forest"> -->
   <!-- <img src="https://i.ibb.co/ryBB5T4/prod3-3.jpg" alt="Northern Lights">
   <img src="https://i.ibb.co/gJhND9y/prod2.jpg" alt="Mountains"> -->
 </div>

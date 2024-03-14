@@ -51,17 +51,24 @@ export default createStore({
       window.location.reload() 
   },
   async checkUser({commit},user) {
-    let {data}=await axios.post(BASE_URL+'/login/',user);
-    //  user is the this.$data that was saved
-    $cookies.set('jwt',data.token)
-    alert(data.msg)
-    commit('setLogged',true)
-    // replace will redirect but not allow you to go back
-    // push keeps browser history of when visiting that page.. redirects you but able to press back
-    await router.push('/')
-    window.location.reload()
-    // reloads page 
-    // window.location.reload()
+        
+        let {data}=await axios.post(BASE_URL+'/login',user);
+        //  user is the this.$data that was saved
+        if(data.token !== undefined){
+          $cookies.set('jwt',data.token)
+          alert(data.msg)
+          await router.push('/')
+
+        }else{
+          alert(data.msg)
+          $cookies.remove('jwt')
+        }
+        commit('setLogged',true)
+        // replace will redirect but not allow you to go back
+        // push keeps browser history of when visiting that page..redirects you but able to press back
+        window.location.reload()
+      
+    
   },
   async addUser({ commit },newuser) {
     const {data} =await axios.post(BASE_URL+'/users/',newuser);
