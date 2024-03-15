@@ -41,14 +41,16 @@
         <router-link v-if="!$cookies.get('jwt')" to="/login" class="nav-link text-white" href="login">Login</router-link>
       </li> -->
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white"  v-if="!$cookies.get('jwt')" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             login/signup
           </a>
           <ul class="dropdown-menu">
-            <router-link v-if="!$cookies.get('jwt')" to="/login" class="nav-link" href="login">Login</router-link>
+            <router-link to="/login" class="nav-link" href="login">Login</router-link>
             <router-link to="/register" class="nav-link " href="register">Sign up</router-link>
           </ul>
         </li>
+
+        <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button>
       
       </div>
     </div>
@@ -62,6 +64,11 @@
 
 <script>
 export default {
+  computed:{
+    logout(){
+      this.$store.dispatch('logout')
+    }
+  }
 
 }
 </script>
@@ -83,6 +90,9 @@ export default {
 
 #nav{
     background-color: #8b8b7c ;
+}
+#logoutBtn{
+  margin-left: 65%;
 }
 /* #353515 */
  /* #8b8b7c */

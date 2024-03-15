@@ -144,7 +144,7 @@ svg {
 }
 
 #detailsBtn:hover{
-   border: 1px solid #dcd3cd;
+ border: 1px solid #dcd3cd;
  background-color: #dcd3cd;
 }
 

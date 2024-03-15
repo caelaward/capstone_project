@@ -1,18 +1,8 @@
 <template>
   <div>
-  <!-- <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/products">Products</router-link> |
-    <router-link to="/product">Product</router-link> |
-    <router-link to="/admin">Admin</router-link> |
-    <router-link to="/checkout">Checkout</router-link> |
-    <router-link to="/user">user</router-link> |
-    <router-link to="/contact">Contact</router-link> |   
-   <router-link v-if="!$cookies.get('jwt')" to="/login" >Login</router-link>
-  </nav> -->
+ 
   <NavComp/>
-  <button v-if="$cookies.get('jwt')" @click="logout">Logout</button>
+
   <router-view/>
   </div>
 </template>   
@@ -24,11 +14,8 @@ export default {
     NavComp
    
     },
-  computed:{
-    logout(){
-      this.$store.dispatch('logout')
-    }
-  }
+ 
+  
 }
 </script>
 

@@ -1,7 +1,8 @@
 <template>
   <div class="admin">
 
-    <h1>admin</h1>
+    <h1>Products CRUD</h1>
+    <p>Press the add button to add any new products into the system</p>
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   add
