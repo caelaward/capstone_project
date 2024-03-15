@@ -29,12 +29,12 @@
         <router-link to="/checkout" class="nav-link text-white" href="checkout">Checkout</router-link>
       </li>
       <li class="nav-item dropdown" >
-          <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false" v-if="$cookies.get('userRole') == 'admin'">
             Admin
           </a>
-          <ul class="dropdown-menu">
-            <router-link to="/admin" class="nav-link " href="admin">Products Admin</router-link>
-            <router-link to="/user" class="nav-link " href="user">Users Admin</router-link>
+          <ul class="dropdown-menu" >
+            <router-link to="/admin" class="nav-link " v-if="$cookies.get('userRole') == 'admin'" href="admin">Products Admin</router-link>
+            <router-link to="/user" class="nav-link " v-if="$cookies.get('userRole') == 'admin'" href="user">Users Admin</router-link>
           </ul>
         </li>
       <!-- <li class="nav-item">

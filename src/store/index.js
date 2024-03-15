@@ -56,12 +56,18 @@ export default createStore({
         //  user is the this.$data that was saved
         if(data.token !== undefined){
           $cookies.set('jwt',data.token)
+          let [{userRole}] = data.user
+          $cookies.set('userRole',userRole)
+          let [user] = data.user
+          $cookies.set('user',user)
           alert(data.msg)
           await router.push('/')
 
         }else{
           alert(data.msg)
           $cookies.remove('jwt')
+          $cookies.remove('user')
+          $cookies.remove('userRole')
         }
         commit('setLogged',true)
         // replace will redirect but not allow you to go back
@@ -81,6 +87,9 @@ export default createStore({
     console.log(cookies);
     $cookies.remove('jwt')
     window.location.reload()
+    $cookies.remove('jwt')
+    $cookies.remove('user')
+    $cookies.remove('userRole')
     // let {data}=await axios.delete(BASE_URL+'/logout')
     alert("you have logged out")
   },

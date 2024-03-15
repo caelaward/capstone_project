@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid" id="aboutImg"><h1>About us</h1></div>
+  <div class="container-fluid" id="aboutImg"><h1 class="mt-5 ">About us</h1></div>
  <div class="container-fluid w-76 mt-2" id="aboutPage">
    
     <div class="row mt-5">
@@ -19,7 +19,7 @@
     </div> 
 
       <h2 class="mt-5 mb-4">What we offer</h2>
-    <div class="row">
+    <div class="row" >
     <div class="col me-2" id="offers"><img src="https://i.ibb.co/fnWxRXb/variety-house.jpg" class="imgtransaction"> <h4>Wide Selection</h4><p> Explore a diverse range of properties including single-family homes, condos, townhouses, and more.</p></div>
 
     <div class="col me-2" id="offers"><img src="https://i.ibb.co/Mn2sTd0/advice-img.webp" class="imgtransaction" ><h4>Expert Advice</h4><p> Our team of experienced real estate professionals is here to offer expert advice and guidance tailored to your unique needs and preferences.</p></div>
@@ -44,7 +44,7 @@ export default {
 } */
 #aboutImg{
   background-image: url('https://i.ibb.co/Tq1qD4x/about-img3.jpg');
-  
+color:white;
   background-repeat: no-repeat;
   background:cover;
   background-position: center;
@@ -57,7 +57,7 @@ export default {
   border:solid 1px  black;
   padding:1rem;
   border-radius:10px;
-  margin-top:1rem
+  margin-top:1rem;
   }
 
  .imgtransaction{
