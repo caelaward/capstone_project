@@ -1,8 +1,8 @@
 <template>
- <div class="container w-75 mt-2" id="loginPage">
+ <div class="container w-75 mt-2" id="aboutPage">
   <h1>About us</h1>
     <div class="row">
-    <div class="col">
+    <div class="col" >
     <p>At BloubergLux, we're dedicated to helping you find your perfect home sweet home. Whether you're a first-time buyer, seasoned investor, or looking to sell your current property, we're here to guide you through every step of the journey.</p>
     </div>
      <img src="https://i.ibb.co/gJhND9y/prod2.jpg" class="col w-50 img-fluid p-0 ">
@@ -53,5 +53,9 @@ export default {
   border-radius:5px;
   margin-bottom:1rem
   }
+
+/* #aboutPage{
+      background: linear-gradient(112deg, #FFFFFF 50%, #999966 50%);
+} */
 
 </style>
