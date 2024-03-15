@@ -39,5 +39,10 @@ const checkUser = async(userName)=>{
         return password
  } 
 
+ const getUserRole = async(userName)=>{
+    const [result]= await pool.query(`
+    SELECT * From users WHERE userName =?`,[userName])
+        return result
+ } 
 
-export {getUsers,getSingleUser,addUser,editUser,delUser,checkUser}
+export {getUsers,getSingleUser,addUser,editUser,delUser,checkUser,getUserRole}

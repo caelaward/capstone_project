@@ -1,12 +1,13 @@
 // import cookieParser from 'cookie-parser'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import {checkUser} from '../models/userDB.js'
+import {checkUser,getUserRole} from '../models/userDB.js'
 
 const auth = async(req,res,next)=>{
     // getting username and passsword from user
     const {password,userName}= req.body
     const hashedPassword=await checkUser(userName)
+    let userRole=await getUserRole(userName)
     bcrypt.compare(password,hashedPassword,(err,result)=>{
         if (err) throw err
         if(result===true){
@@ -18,7 +19,8 @@ const auth = async(req,res,next)=>{
             res.send({
                 // key name,value of the    
                 token:token,
-                msg:"you have logged in" 
+                msg:"you have logged in",
+                user:userRole
             }) 
            next()
         }else{
