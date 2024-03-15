@@ -1,7 +1,8 @@
 <template>
+  <div class="container-fluid" id="aboutImg"><h1>About us</h1></div>
  <div class="container w-75 mt-2" id="aboutPage">
-  <h1>About us</h1>
-    <div class="row">
+   
+    <!-- <div class="row">
     <div class="col" >
     <p>At BloubergLux, we're dedicated to helping you find your perfect home sweet home. Whether you're a first-time buyer, seasoned investor, or looking to sell your current property, we're here to guide you through every step of the journey.</p>
     </div>
@@ -13,7 +14,7 @@
       <h2>Our mission</h2>
      <p>We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
     </div>
-    </div>
+    </div>  -->
 
       <h2 class="mt-5 mb-4">What we offer</h2>
     <div class="row">
@@ -39,6 +40,15 @@ export default {
 /* p{
   padding-top:20%
 } */
+#aboutImg{
+  background-image: url('https://i.ibb.co/ZBM25vk/img-about3.jpg');
+  
+  background-repeat: no-repeat;
+  background:cover;
+  padding-top:2rem;
+  background-size: 100%;
+  height:40vh
+}
 
 #offers{
   border:solid 1px  black;
