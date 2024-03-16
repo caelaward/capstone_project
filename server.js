@@ -29,7 +29,7 @@ app.use (cookieParser())
 app.use('/products',productRouter)
 app.use('/users',userRouter)
 app.use('/login',auth,loginRouter)
-app.use('/cart',authenticate,cartRouter)
+app.use('/cart',cartRouter)
 
 app.listen(PORT,()=>{
     console.log(`This is running on http://localhost:${PORT}`);

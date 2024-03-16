@@ -8,8 +8,8 @@ export default{
         res.send(await getSingleCart(+req.params.id))
     },
     addCartItem:async(req,res)=>{
-        const { carID,quantity,prodID,userID } = req.body;
-        const post = await addCart(carID,quantity,prodID,userID);
+        const { cartID,quantity,prodID,userID } = req.body;
+        const post = await addCart(cartID,quantity,prodID,userID);
         res.send(await getCart());  
     },  
     deleteCart:async(req,res)=>{
