@@ -33,8 +33,8 @@
             Admin
           </a>
           <ul class="dropdown-menu" >
-            <router-link to="/admin" class="nav-link " v-if="$cookies.get('userRole') == 'admin'" href="admin">Products Admin</router-link>
-            <router-link to="/user" class="nav-link " v-if="$cookies.get('userRole') == 'admin'" href="user">Users Admin</router-link>
+            <router-link to="/admin" class="nav-link "  href="admin">Products Admin</router-link>
+            <router-link to="/user" class="nav-link "  href="user">Users Admin</router-link>
           </ul>
         </li>
       <!-- <li class="nav-item">

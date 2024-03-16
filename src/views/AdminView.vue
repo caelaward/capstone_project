@@ -95,6 +95,7 @@
 </template> 
 
 <script>
+import sweetalert from 'sweetalert'
 export default {
   data(){
  return{
