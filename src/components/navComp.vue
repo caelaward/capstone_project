@@ -74,19 +74,16 @@ export default {
 </script>
 
 <style scoped>
-#logo {
+/* #logo {
     width: 25px;
     height: 25px;
     padding: 2px;
     mix-blend-mode: multiply;
     transition: transform 0.3s;
-  } 
- #logo:hover{
+  }  */
+ /* #logo:hover{
       transform: scale(1.2);
-    }
-#top-nav{
-    background-color: #CCCC99;
-    }    
+    }   */
 
 #nav{
     background-color: #8b8b7c ;

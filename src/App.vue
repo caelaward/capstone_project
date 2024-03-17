@@ -4,14 +4,17 @@
   <NavComp/>
 
   <router-view/>
+  <footerComp/>
   </div>
 </template>   
 
 <script>
   import NavComp from "./components/navComp.vue"
+  import footerComp from "./components/footerComp.vue"
 export default {
   components: {
-    NavComp
+    NavComp,
+    footerComp
    
     },
  
