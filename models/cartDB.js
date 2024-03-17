@@ -18,9 +18,6 @@ import {pool} from "../config/config.js";
 
 const getCart = async (userID) => {
     try {
-        // Assuming you have a 'pool' object for database connection
-
-        // Execute the SQL query to retrieve cart details
         const result = await pool.query(`
             SELECT *
             FROM cart 
@@ -32,18 +29,18 @@ const getCart = async (userID) => {
         return result;
     } catch (error) {
         console.error('Error viewing cart:', error);
-        throw error; // Propagate the error to the caller
+        throw error;
     }
 };
 
 
-getCart()
-    .then(result => {
-        console.log('Cart details:', result);
-    })
-    .catch(error => {
-        console.error('Error viewing cart:', error);
-    });
+// getCart()
+//     .then(result => {
+//         console.log('Cart details:', result);
+//     })
+//     .catch(error => {
+//         console.error('Error viewing cart:', error);
+//     });
 
 
 const getSingleCart=async(id)=>{
@@ -77,11 +74,11 @@ const addCart = async (quantity, prodID, userID) => {
 };
 
 // Example usage:
-const quantity = 2; // Or whatever quantity you want to add
+// const quantity = 2; // Or whatever quantity you want to add
 // const prodID=1 ; // The ID of the product you want to add to the cart
 // const userID = 2; // The ID of the user
 
-addCart(quantity);
+// addCart(quantity);
 
 
 const delCart=async(id)=>{
