@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">{{house.prodName}}</h5>
-              <!-- <p class="card-text">R{{house.price}}</p>  -->
+              <p class="card-text">R{{house.price}}</p> 
               <div class="card-footer">
                <router-link @click="getHouse(house.prodID)" :to="{ name: 'product', params: { prodID: house.prodID }}" class="btn" id="detailsBtn">details</router-link>
               <div class="card-button">

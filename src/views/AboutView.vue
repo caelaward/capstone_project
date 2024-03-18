@@ -1,4 +1,5 @@
 <template>
+  <section>
   <div class="container-fluid" id="aboutImg"><h1 class="mt-5 ">About us</h1></div>
  <div class="container-fluid w-76 mt-2" id="aboutPage">
    
@@ -17,7 +18,6 @@
       <source src="https://i.imgur.com/ZwTZkvx.mp4" type="video/mp4">
      </video>
     </div> 
-
       <h2 class="mt-5 mb-4">What we offer</h2>
     <div class="row" >
     <div class="col me-2" id="offers"><img src="https://i.ibb.co/fnWxRXb/variety-house.jpg" class="imgtransaction"> <h4>Wide Selection</h4><p> Explore a diverse range of properties including single-family homes, condos, townhouses, and more.</p></div>
@@ -30,6 +30,7 @@
     
 
  </div>
+ </section>
 </template>
 
 <script>
