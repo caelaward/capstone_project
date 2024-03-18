@@ -20,10 +20,10 @@
     <img src="https://i.ibb.co/cCcv9CT/home-img.jpg"  >
   </div>
   <div class="column">
-    <img src="https://i.ibb.co/0Y2fV1c/homeImg.jpg"  >
+    <img src="https://i.ibb.co/sywrD1k/homeImg5.jpg"  >
   </div>
   <div class="column">
-    <img src="https://i.ibb.co/0Y2fV1c/homeImg.jpg"  >
+    <img src="https://i.ibb.co/55sXpF7/homeIMG.jpg"  >
   </div>
 </div>
 
