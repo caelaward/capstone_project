@@ -38,6 +38,7 @@ const authenticate = (req,res,next) =>{
     (err,userName,userRole)=>{
         if(err) return res.sendStatus(403)
         req.userName=userName
+        req.userRole=userRole
         next()
     } )
 }

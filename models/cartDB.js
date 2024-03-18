@@ -23,9 +23,7 @@ const getCart = async (userID) => {
             FROM cart 
             INNER JOIN products ON cart.prodID = products.prodID
             WHERE cart.userID = ?
-        `, [userID]);
-
-        // Return the result
+        `, [userID]); 
         return result;
     } catch (error) {
         console.error('Error viewing cart:', error);
@@ -58,25 +56,23 @@ return item
 
 const addCart = async (quantity, prodID, userID) => {
     try {
-        // Assuming you have a 'pool' object for database connection
 
-        // Insert the product into the cart table
         await pool.query(`
-            INSERT INTO cart (quantity, prodID, userID)
-            VALUES (?, ?, ?)
+            INSERT INTO cart (quantity,prodID,userID)
+            VALUES (?,?,?)
         `, [quantity, prodID, userID]);
 
         console.log('Product added to cart successfully.');
     } catch (error) {
         console.error('Error adding product to cart:', error);
-        throw error; // Propagate the error to the caller
+        throw error; 
     }
 };
 
-// Example usage:
-// const quantity = 2; // Or whatever quantity you want to add
-// const prodID=1 ; // The ID of the product you want to add to the cart
-// const userID = 2; // The ID of the user
+
+// const quantity = 2; 
+// const prodID=1 ; 
+// const userID = 2; 
 
 // addCart(quantity);
 
