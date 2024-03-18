@@ -106,6 +106,11 @@ export default createStore({
       let { data } = await axios.get(BASE_URL + "/cart");
       console.log(data);
       commit("setCart", data);
+    },
+    async addCartItem({ commit }, newitem) {
+      const { data } = await axios.post(BASE_URL + "/cart", newitem);
+      alert(data.msg);
+      window.location.reload();
     }
   },
   modules: {},

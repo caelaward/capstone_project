@@ -15,10 +15,10 @@
     </thead> 
     <tbody v-for="carts in $store.state.cart" :key="carts.cartID">
       <tr scope="row">
-        <td id="table_info">{{house.prodName}}</td>
-        <td id="table_info">{{house.description}}</td>
-        <td id="table_info">{{house.category}}</td>
-        <td id="table_info">R{{house.price}}</td>
+        <td id="table_info">{{carts.cartID}}</td>
+        <td id="table_info">{{carts.prodID}}</td>
+        <td id="table_info">{{carts.quantity}}</td>
+        <!-- <td id="table_info">R{{house.price}}</td> -->
         <td><img :src="house.prodURL" class="w-25" ></td>
        
       </tr>
@@ -31,6 +31,14 @@
 
 <script>
 export default {
+  methods:{
+    getCart(){
+      this.$store.dispatch('getCart')
+    }
+  },
+  mounted(){
+    this.getCart
+  }
 
 }
 </script>
