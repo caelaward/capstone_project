@@ -16,12 +16,28 @@ import {pool} from "../config/config.js";
 //         return result
 // }
 
+// const getCart = async (userID) => {
+//     try {
+//         const result = await pool.query(`
+//             SELECT *
+//             FROM cart 
+//             INNER JOIN products ON cart.prodID = products.prodID
+//             WHERE cart.userID = ?
+//         `, [userID]); 
+//         return result;
+//     } catch (error) {
+//         console.error('Error viewing cart:', error);
+//         throw error;
+//     }
+// };
+
 const getCart = async (userID) => {
     try {
         const result = await pool.query(`
-            SELECT *
+            SELECT cart.*, products.*, users.*
             FROM cart 
             INNER JOIN products ON cart.prodID = products.prodID
+            INNER JOIN users ON cart.userID = users.userID
             WHERE cart.userID = ?
         `, [userID]); 
         return result;
@@ -29,16 +45,14 @@ const getCart = async (userID) => {
         console.error('Error viewing cart:', error);
         throw error;
     }
-};
-
-
-// getCart()
-//     .then(result => {
-//         console.log('Cart details:', result);
-//     })
-//     .catch(error => {
-//         console.error('Error viewing cart:', error);
-//     });
+}; 
+getCart()
+    .then(result => {
+        console.log('Cart details:', result);
+    })
+    .catch(error => {
+        console.error('Error viewing cart:', error);
+    });
 
 
 const getSingleCart=async(id)=>{
