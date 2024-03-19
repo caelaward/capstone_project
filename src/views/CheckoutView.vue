@@ -33,7 +33,7 @@
 export default {
   methods:{
     getCart(){
-      this.$store.dispatch('getCart')
+      this.$store.dispatch('getCart',$cookies.get('userID'))
     }
   },
   mounted(){

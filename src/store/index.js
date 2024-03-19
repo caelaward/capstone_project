@@ -11,7 +11,7 @@ export default createStore({
     loggedIn: false,
     singleHouse: [],
     users: [],
-    cart:[]
+    cart: [],
   },
   getters: {},
   mutations: {
@@ -62,6 +62,8 @@ export default createStore({
         $cookies.set("userRole", userRole);
         let [user] = data.user;
         $cookies.set("user", user);
+        let [{ userID }] = data.user;
+        $cookies.set("userID", userID);
         alert(data.msg);
         await router.push("/");
       } else {
@@ -79,13 +81,12 @@ export default createStore({
       window.location.reload();
     },
     async logout(context) {
-      let cookies = $cookies.keys();
-      console.log(cookies);
-      $cookies.remove("jwt");
-      window.location.reload();
+      // let cookies = $cookies.keys();
+      // console.log(cookies);
       $cookies.remove("jwt");
       $cookies.remove("user");
       $cookies.remove("userRole");
+      window.location.reload();
       // let {data}=await axios.delete(BASE_URL+'/logout')
       alert("you have logged out");
     },
@@ -102,16 +103,18 @@ export default createStore({
       await axios.patch(BASE_URL + "/users/" + update.userID, update);
       window.location.reload();
     },
-    async getCart({ commit }) {
-      let { data } = await axios.get(BASE_URL + "/cart");
+    async getCart({ commit }, userID) {
+      let { data } = await axios.get(BASE_URL + "/cart/" + userID);
       console.log(data);
       commit("setCart", data);
     },
-    async addCartItem({ commit }, newitem) {
-      const { data } = await axios.post(BASE_URL + "/cart", newitem);
+    async addCartItem({ commit }, payload) {
+      let { data } = await axios.post(`${BASE_URL}/cart/${payload.prodID}?user=${payload.userID}`
+      );
+      console.log(data);
       alert(data.msg);
       window.location.reload();
-    }
+    },
   },
   modules: {},
 });

@@ -35,17 +35,17 @@ export default {
         // as typing data gets saved here 
             return{
                 userName:'',
-                userSurname:'',
-                email:'',
-                userRole:'',
+                // userSurname:'',
+                // email:'',
+                // userRole:'',
                 password:''
             }
         },
         methods:{
-            submitData(){
-                console.log(this.$data);
-                this.$store.dispatch('addUser',this.$data)
-            },
+            // submitData(){
+            //     console.log(this.$data);
+            //     this.$store.dispatch('addUser',this.$data)
+            // },
             loginUser(){
                this.$store.dispatch('checkUser',this.$data)  
             }
