@@ -33,12 +33,12 @@ import {pool} from "../config/config.js";
 
 const getCart = async (userID) => {
     try {
-        const result = await pool.query(`
-            SELECT cart.*, products.*, users.*
-            FROM cart 
-            INNER JOIN products ON cart.prodID = products.prodID
-            INNER JOIN users ON cart.userID = users.userID
-            WHERE cart.userID = ?
+        const [result] = await pool.query(`
+        SELECT distinct prodName,price,prodURl
+        FROM cart 
+        INNER JOIN products ON cart.prodID = products.prodID
+        INNER JOIN users ON cart.userID = users.userID
+        WHERE cart.userID =? ;
         `, [userID]); 
         return result;
     } catch (error) {
@@ -46,7 +46,7 @@ const getCart = async (userID) => {
         throw error;
     }
 }; 
-getCart()
+getCart(3)
     .then(result => {
         console.log('Cart details:', result);
     })
@@ -55,12 +55,12 @@ getCart()
     });
 
 
-const getSingleCart=async(id)=>{
-    const[item]=await pool.query(`
-    SELECT * FROM cart
-    WHERE cartID=? `,[id])
-return item
-}
+// const getSingleCart=async(id)=>{
+//     const[item]=await pool.query(`
+//     SELECT * FROM cart
+//     WHERE cartID=? `,[id])
+// return item
+// }
 
 // const addCart = async(quantity,prodID,userID)=>{
 //     await pool.query(`
@@ -97,4 +97,4 @@ const delCart=async(id)=>{
    return getCart(item)
 }
 
-export {getCart,getSingleCart,addCart,delCart}
+export {getCart,addCart,delCart}

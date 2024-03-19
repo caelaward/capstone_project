@@ -1,11 +1,8 @@
-import { getCart,getSingleCart,addCart,delCart} from "../models/cartDB.js"
+import { getCart,addCart,delCart} from "../models/cartDB.js"
 
 export default{
-    getCartItems :async(req,res)=>{
-        res.send( await getCart())
-    }, 
-    getSingleCartItem:async(req,res)=>{
-        res.send(await getSingleCart(+req.params.id))
+    getCartItems : async(req,res)=>{
+        res.send( await getCart(+req.params.id))
     },
     addCartItem:async(req,res)=>{
         try {
