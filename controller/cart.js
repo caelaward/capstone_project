@@ -13,9 +13,9 @@ export default{
             await addCart(quantity, prodID, users);
     
             // Retrieve the updated cart details after adding the item
-            const updatedCart = await getCart(userID);
+            // const updatedCart = await getCart(userID);
     
-            res.send(updatedCart);
+            // res.send(updatedCart);
         } catch (error) {
             console.error('Error adding item to cart:', error);
             res.status(500).send('Error adding item to cart');

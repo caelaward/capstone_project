@@ -6,11 +6,11 @@ const router = express.Router()
 
 router
     .route('/')
-    .post(controller.addCartItem)
     
     router
     .route('/:id')
     .get(controller.getCartItems)
+    .post(controller.addCartItem)
    
 
 
