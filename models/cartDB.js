@@ -1,10 +1,10 @@
 import {pool} from "../config/config.js";
 
-// const getCart= async()=>{
-//     const [item]=await pool.query(`
-//    SELECT * FROM cart   `)
-//    return item
-// }
+const getCarts= async()=>{
+    const [item]=await pool.query(`
+   SELECT * FROM cart   `)
+   return item
+}
 
 // const getCart = async (userID) => {
 //     const [result] = await pool.query(`
@@ -46,13 +46,13 @@ const getCart = async (userID) => {
         throw error;
     }
 }; 
-getCart(3)
-    .then(result => {
-        console.log('Cart details:', result);
-    })
-    .catch(error => {
-        console.error('Error viewing cart:', error);
-    });
+// getCart()
+//     .then(result => {
+//         console.log('Cart details:', result);
+//     })
+//     .catch(error => {
+//         console.error('Error viewing cart:', error);
+//     });
 
 
 // const getSingleCart=async(id)=>{
@@ -68,7 +68,7 @@ getCart(3)
 //     VALUES(?,?,?)`,[quantity,prodID,userID])
 // }
 
-const addCart = async (quantity, prodID, userID) => {
+const addCart = async ( quantity,prodID, userID) => {
     try {
 
         await pool.query(`
@@ -97,4 +97,4 @@ const delCart=async(id)=>{
    return getCart(item)
 }
 
-export {getCart,addCart,delCart}
+export {getCart,addCart,delCart,getCarts}
