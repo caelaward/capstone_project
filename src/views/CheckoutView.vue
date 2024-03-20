@@ -13,13 +13,13 @@
         <th ></th>
       </tr>
     </thead> 
-    <tbody v-for="carts in $store.state.cart" :key="carts.cartID">
+    <tbody v-for="item in $store.state.cart" :key="item.cartID">
       <tr scope="row">
-        <td id="table_info">{{carts.cartID}}</td>
-        <td id="table_info">{{carts.prodID}}</td>
-        <td id="table_info">{{carts.quantity}}</td>
+        <td id="table_info">{{item.userID}}</td>
+        <td id="table_info">{{item.prodName}}</td>
+        <td id="table_info">{{item.description}}</td>
         <!-- <td id="table_info">R{{house.price}}</td> -->
-        <td><img :src="house.prodURL" class="w-25" ></td>
+        <td><img :src="item.prodURL" class="w-25" ></td>
        
       </tr>
     </tbody>
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  methods:{
+  computed:{
     getCart(){
       this.$store.dispatch('getCart',$cookies.get('userID'))
     }

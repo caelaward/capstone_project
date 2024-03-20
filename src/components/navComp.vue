@@ -49,8 +49,11 @@
             <router-link to="/register" class="nav-link " href="register">Sign up</router-link>
           </ul>
         </li>
-
-        <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button>
+         <li class="nav-item">
+             <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button>
+        </li>
+<!-- 
+        <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button> -->
       
       </div>
     </div>
