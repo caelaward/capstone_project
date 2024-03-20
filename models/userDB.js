@@ -15,7 +15,7 @@ return user
 
 const addUser = async(userName,userSurname,userRole,email,password)=>{
     await pool.query(`
-   INSERT INTO users (userName,userSurname,userRole,email,p assword)
+   INSERT INTO users (userName,userSurname,userRole,email,password)
     VALUES(?,?,?,?,?)`,[userName,userSurname,userRole,email,password])
 }
  

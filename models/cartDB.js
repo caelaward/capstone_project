@@ -34,7 +34,7 @@ const getCarts= async()=>{
 const getCart = async (userID) => {
     try {
         const [result] = await pool.query(`
-        SELECT distinct prodName,price,prodURl
+        SELECT *
         FROM cart 
         INNER JOIN products ON cart.prodID = products.prodID
         INNER JOIN users ON cart.userID = users.userID
@@ -46,13 +46,13 @@ const getCart = async (userID) => {
         throw error;
     }
 }; 
-// getCart()
-//     .then(result => {
-//         console.log('Cart details:', result);
-//     })
-//     .catch(error => {
-//         console.error('Error viewing cart:', error);
-//     });
+getCart(14)
+    .then(result => {
+        console.log('Cart details:', result);
+    })
+    .catch(error => {
+        console.error('Error viewing cart:', error);
+    });
 
 
 // const getSingleCart=async(id)=>{
