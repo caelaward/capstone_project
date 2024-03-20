@@ -9,7 +9,7 @@ const getCarts= async()=>{
 const getCart = async (userID) => {
     try {
         const [result] = await pool.query(`
-        SELECT products.prodID, products.prodName, products.price, products.description,products.prodURL, SUM(cart.quantity) AS quantity
+        SELECT cartID, products.prodID, products.prodName, products.price, products.description,products.prodURL, SUM(cart.quantity) AS quantity
         FROM cart 
         INNER JOIN products ON cart.prodID = products.prodID
         INNER JOIN users ON cart.userID = users.userID
@@ -47,10 +47,22 @@ const addCart = async ( prodID, userID) => {
 };
 
 
-const delCart=async(id)=>{
-    const [item]=await pool.query(`
-    DELETE FROM cart WHERE cartID=?`,[id])
-   return getCart(item)
+// const delCart=async(cartID)=>{
+   
+//         // Delete the item from the cart
+//         await pool.query(`
+//             DELETE FROM cart
+//             WHERE cartID = ?
+//         `, [cartID]);
+
+// }
+
+const delCart = async(cartID)=> {
+    const [cart] = await pool.query(`
+    delete from cart where cartID =?
+    `,[cartID] 
+    ) 
+    return cart
 }
 
 export {getCart,addCart,delCart,getCarts}

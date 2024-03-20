@@ -27,7 +27,11 @@ export default{
         // const post = await addCart(quantity,prodID,userID);
         // res.send(await getCart());  
     },
-    deleteCart:async(req,res)=>{
-        res.send(await delCart(req.params.id)) 
-    }
+    // deleteCart:async(req,res)=>{
+    //     res.send(await delCart(req.params.id)) 
+    // }
+    deleteCart: async (req,res)=> {
+        await delCart(+req.params.id);
+        res.send(await getCarts())
+       }
 } 
