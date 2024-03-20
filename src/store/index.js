@@ -116,6 +116,23 @@ export default createStore({
       console.log(data);
       window.location.reload()
     },
+    async deleteCartItem({ commit }, cartID) {
+      try {
+        // Check if cartID is valid before making the request
+        if (cartID === undefined || cartID === null) {
+          throw new Error("Invalid cartID");
+        }
+    
+        // Make the DELETE request to delete the cart item
+        await axios.delete(BASE_URL + "/cart/" + cartID);
+    
+        window.location.reload();
+      } catch (error) {
+        console.error("Error deleting cart item:", error);
+        
+      }
+    },
+    
   },
   modules: {},
 });

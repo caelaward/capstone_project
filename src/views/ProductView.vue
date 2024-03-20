@@ -16,7 +16,6 @@
         </div>
       </div>
 
-        
        <div class="col scroll-container w-75  h-50 " id="scroller">
        <img :src="house.prodURL1"  alt="" >
        <img :src="house.prodURL2"  alt="" >

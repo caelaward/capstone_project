@@ -26,7 +26,7 @@
         <router-link to="/contact" class="nav-link text-white" href="contact">Contact</router-link>
       </li>
         <li class="nav-item">
-        <router-link to="/checkout" class="nav-link text-white" href="checkout">Checkout</router-link>
+        <router-link to="/checkout" v-if="$cookies.get('jwt')" class="nav-link text-white" href="checkout">Checkout</router-link>
       </li>
       <li class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false" v-if="$cookies.get('userRole') == 'admin'">
