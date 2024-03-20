@@ -39,6 +39,7 @@
     <table class="table table-hover " id="prodTable">
     <thead class="table-secondary" >
       <tr scope="col">
+        <th >id</th>
         <th >House</th>
         <th >Description</th>
         <th >Category</th>
@@ -49,6 +50,7 @@
     </thead> 
     <tbody v-for="house in $store.state.houses" :key="house.prodID">
       <tr scope="row">
+         <td id="table_info">{{house.prodID}}</td>
         <td id="table_info">{{house.prodName}}</td>
         <td id="table_info">{{house.description}}</td>
         <td id="table_info">{{house.category}}</td>

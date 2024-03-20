@@ -111,7 +111,7 @@ export default createStore({
       commit('setCarts',data)
      },
     async addCartItem({ commit }, payload) {
-      let data=await axios.post(`${BASE_URL}/cart/${payload.prodID}?user=${payload.userID}`
+      let data=await axios.post(`${BASE_URL}/cart/${payload.prodID}?users=${payload.userID}`
       );
       console.log(data);
       window.location.reload()
