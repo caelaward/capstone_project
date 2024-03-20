@@ -6,47 +6,24 @@ const getCarts= async()=>{
    return item
 }
 
-// const getCart = async (userID) => {
-//     const [result] = await pool.query(`
-//         SELECT *
-//         FROM cart
-//         INNER JOIN products ON cart.prodID = products.prodID
-//         WHERE cart.userID = ?
-//     `, [userID]);
-//         return result
-// }
-
-// const getCart = async (userID) => {
-//     try {
-//         const result = await pool.query(`
-//             SELECT *
-//             FROM cart 
-//             INNER JOIN products ON cart.prodID = products.prodID
-//             WHERE cart.userID = ?
-//         `, [userID]); 
-//         return result;
-//     } catch (error) {
-//         console.error('Error viewing cart:', error);
-//         throw error;
-//     }
-// };
-
 const getCart = async (userID) => {
     try {
         const [result] = await pool.query(`
-        SELECT *
+        SELECT products.prodID, products.prodName, products.price, products.description,products.prodURL, SUM(cart.quantity) AS quantity
         FROM cart 
         INNER JOIN products ON cart.prodID = products.prodID
         INNER JOIN users ON cart.userID = users.userID
-        WHERE cart.userID =? ;
+        WHERE cart.userID = ?
+        GROUP BY products.prodID;
         `, [userID]); 
         return result;
     } catch (error) {
         console.error('Error viewing cart:', error);
         throw error;
     }
-}; 
-getCart(14)
+};
+
+getCart()
     .then(result => {
         console.log('Cart details:', result);
     })
@@ -54,27 +31,13 @@ getCart(14)
         console.error('Error viewing cart:', error);
     });
 
-
-// const getSingleCart=async(id)=>{
-//     const[item]=await pool.query(`
-//     SELECT * FROM cart
-//     WHERE cartID=? `,[id])
-// return item
-// }
-
-// const addCart = async(quantity,prodID,userID)=>{
-//     await pool.query(`
-//    INSERT INTO cart (quantity,prodID,userID)
-//     VALUES(?,?,?)`,[quantity,prodID,userID])
-// }
-
-const addCart = async ( quantity,prodID, userID) => {
+const addCart = async ( prodID, userID) => {
     try {
 
         await pool.query(`
-            INSERT INTO cart (quantity,prodID,userID)
-            VALUES (?,?,?)
-        `, [quantity, prodID, userID]);
+            INSERT INTO cart (prodID,userID)
+            VALUES (?,?)
+        `, [ prodID, userID]);
 
         console.log('Product added to cart successfully.');
     } catch (error) {
@@ -82,13 +45,6 @@ const addCart = async ( quantity,prodID, userID) => {
         throw error; 
     }
 };
-
-
-// const quantity = 2; 
-// const prodID=1 ; 
-// const userID = 2; 
-
-// addCart(quantity);
 
 
 const delCart=async(id)=>{

@@ -9,11 +9,11 @@ export default{
     },
     addCartItem:async(req,res)=>{
         try {
-            const { quantity,prodID , userID } = req.body;
+            
             const {users}=req.query
     
             // Call the addCart function to add the item to the cart
-            await addCart(quantity, +req.params.id, users);
+            await addCart( +req.params.id, users);
     
             // Retrieve the updated cart details after adding the item
             // const updatedCart = await getCart(userID);
