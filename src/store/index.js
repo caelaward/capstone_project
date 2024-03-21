@@ -11,6 +11,7 @@ export default createStore({
     loggedIn: false,
     singleHouse: [],
     users: [],
+    singleUser:[],
     cart: [],
   },
   getters: {},
@@ -29,6 +30,9 @@ export default createStore({
     },
     setCarts(state, data) {
       state.cart = data;
+    },
+    setSingleUser(state, data) {
+      state.singleUser = data;
     },
   },
   actions: {
@@ -76,6 +80,11 @@ export default createStore({
       commit("setLogged", true);
       window.location.reload();
     },
+    async getSingleUser({ commit }, userID) {
+      let { data } = await axios.get(BASE_URL + "/users/" + userID);
+      console.log(data);
+      commit("setSingleUser", data);
+    },
     async addUser({ commit }, newuser) {
       const { data } = await axios.post(BASE_URL + "/users/", newuser);
       alert(data.msg);
@@ -91,6 +100,7 @@ export default createStore({
       window.location.reload();
       // let {data}=await axios.delete(BASE_URL+'/logout')
       alert("you have logged out");
+      await router.push("/");
     },
     async getUsers({ commit }) {
       let { data } = await axios.get(BASE_URL + "/users");

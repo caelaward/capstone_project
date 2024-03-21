@@ -13,6 +13,13 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
       <div class="navbar-nav  ">
+         <li class="nav-item" v-if="$cookies.get('jwt')" >
+        <router-link to="/singleUser" class="nav-link text-white" href="profile"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+             </svg>
+          </router-link>
+        </li>
          <li class="nav-item">
             <router-link to="/" class="nav-link  text-white"  href="home">Home</router-link>
          </li>       
@@ -24,7 +31,7 @@
         </li>
         <li class="nav-item">
         <router-link to="/contact" class="nav-link text-white" href="contact">Contact</router-link>
-      </li>
+        </li>
         <li class="nav-item">
         <router-link to="/checkout" v-if="$cookies.get('jwt')" class="nav-link text-white" href="checkout">Checkout</router-link>
       </li>
@@ -49,9 +56,13 @@
             <router-link to="/register" class="nav-link " href="register">Sign up</router-link>
           </ul>
         </li>
+        
          <li class="nav-item">
              <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button>
         </li>
+
+        
+
 <!-- 
         <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button> -->
       

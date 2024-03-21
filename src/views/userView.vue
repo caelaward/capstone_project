@@ -1,5 +1,8 @@
 <template>
   <div class="container ">
+      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  add
+</button>
 
      <table class="table table-bordered mt-5">
     <thead >
@@ -10,8 +13,33 @@
       </tr>
     </thead>
     <tbody v-for="user in $store.state.users" :key="user.userID">
-      <tr scope="row">
     
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add User Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              <input type="text" placeholder="userName.." data-name name="userName" id="userName" v-model="userName">
+             <input type="text" placeholder="userSurname.." data-userSurname name="userSurname" id="userSurname" v-model="userSurname">
+             <input type="text" placeholder="userRole.." data-amount name="userRole" id="userRole" v-model="userRole">
+             <input type="text" placeholder="email.." data-email name="email" id="email" v-model="email">
+             <input type="text" placeholder="password..." data-url name="password" id="password" v-model="password">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" @click="submitData">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <tr scope="row">
+        
         <td>{{user.userName}} {{user.userSurname}}</td>
         <!-- <td>{{user.userSurname}}</td> -->
         <td>{{user.userRole}}</td>
@@ -58,6 +86,17 @@
 import sweet from "sweetalert"
 
 export default {
+   data(){
+        // as typing data gets saved here 
+            return{
+                userName:'',
+                userSurname:'',
+                email:'',
+                userRole:'',
+                password:''
+            }
+        },
+       
   computed:{
   getUsers(){
     this.$store.dispatch('getUsers')
@@ -92,7 +131,11 @@ export default {
           password:this.password
         }
         this.$store.dispatch('updateUser',edit) 
-      }
+      },
+       submitData(){
+                console.log(this.$data);
+                this.$store.dispatch('addUser',this.$data)
+            }
   },
   mounted(){
      this.getUsers
