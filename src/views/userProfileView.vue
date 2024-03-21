@@ -54,6 +54,7 @@
 </template>
 
 <script>
+
 export default {
    computed: {
     getSingleUser(){

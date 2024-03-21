@@ -26,6 +26,7 @@
       </tr>
     </tbody>
     </table>
+     <p>Total Amount due:{{ totalAmount }}</p>
     </div>
    
   </div>
@@ -43,10 +44,15 @@ export default {
   computed:{
     getCart(){
       this.$store.dispatch('getCart',$cookies.get('userID'))
+    },
+    totalAmount() {
+      if (!this.$store.state.cart) return 0;
+      return this.$store.state.cart.reduce((total, item) => total + item.price * item.quantity, 0);
     }
   },
   mounted(){
     this.getCart
+    this.totalAmount
   }
 
 }

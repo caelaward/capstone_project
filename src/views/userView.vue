@@ -1,6 +1,8 @@
 <template>
   <div class="container ">
-      <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+     <h1>Admin CRUD</h1>
+    <p>Press the add button to add any new users into the system</p>
+      <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
   add
 </button>
 

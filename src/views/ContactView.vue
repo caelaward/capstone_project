@@ -1,6 +1,6 @@
 <template>
-  <div class="contact">
-   <h1>contact</h1>
+  <div class="contact pt-2">
+   <h1>Contact us</h1>
     <div class="container-form" id="formContainer">
           <form action="https://formspree.io/f/xrgwdqyv" target="_blank" method="post">
             <div class="mb-3">
@@ -37,5 +37,22 @@ export default {
 </script>
 
 <style>
+.container-form {
+  max-width: 50%;
+  padding: 3%;
+  margin-left:26%;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+/* .cont_details{
+  color: green;
+} */
+
+.cont_details:hover{
+  text-decoration: underline
+}
 
 </style>

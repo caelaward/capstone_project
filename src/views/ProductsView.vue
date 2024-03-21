@@ -1,9 +1,13 @@
 <template>
+
   <div class="houses">
    <h1>houses</h1>
    <div class="container">
+     <input class="mt-3 me-2 w-50" type="search" placeholder="Search" aria-label="Search" @input="find()" v-model="search">
+      <button class="btn1" @click="sortfunction()">Sort</button>
+      <div v-if="find().length>0">
       <div class="row row-cols-1 row-cols-md-3 " >
-        <div v-for="house in $store.state.houses" :key="house.prodID" >
+        <div v-for="house in find()" :key="house.prodID" >
          <div class="col">
           <div class="card mt-5 ">
             <div class="container-fluid">
@@ -29,12 +33,42 @@
          </div>
         </div>
   </div>
+  <div v-else>
+    <SpinnerComp/>
+    </div>
    </div>
+   </div>
+  
 </template>
 
 <script>
+import SpinnerComp from '../components/SpinnerComp.vue'
+import sweet from 'sweetalert'
 export default {
+  components:{
+      SpinnerComp
+    },
+  data(){
+     return{
+      search:""
+     }
+  },
   methods:{
+    find(){
+      let item = this.$store.state.houses
+      let found = this.search 
+      let res = item.filter(h=>{
+        return h.prodName.toLowerCase().includes(found.toLowerCase())|| h.category.toLowerCase().includes(found.toLowerCase())
+      })
+      if(res.length===0){
+        sweet({
+      title: "Error",
+      text: "Item not found",
+    })
+  }
+      console.log(res);
+      return res
+    },
     getHouse(prodID){
       this.$store.dispatch('getSingleHouse',prodID)
     },
@@ -42,6 +76,12 @@ export default {
       const userID = $cookies.get('userID')
       this.$store.dispatch('addCartItem',{prodID,userID})
       alert('hi')
+    },
+     sortfunction(){
+      let h = this.$store.state.houses
+        if (h) {
+          h.sort((a, b) => a.price - b.price);
+        }
     }
   },
   computed:{

@@ -9,7 +9,7 @@
     </div>
     </div>
     <div class="row mt-5">
-    <div class="col">
+    <div class="col" id="mission">
       <h2>Our mission</h2>
      <p>We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
     </div>
@@ -19,7 +19,7 @@
      </video>
     </div> 
       <h2 class="mt-5 mb-4">What we offer</h2>
-    <div class="row" >
+    <div class="container row" id="info">
     <div class="col me-2" id="offers"><img src="https://i.ibb.co/fnWxRXb/variety-house.jpg" class="imgtransaction"> <h4>Wide Selection</h4><p> Explore a diverse range of properties including single-family homes, condos, townhouses, and more.</p></div>
 
     <div class="col me-2" id="offers"><img src="https://i.ibb.co/Mn2sTd0/advice-img.webp" class="imgtransaction" ><h4>Expert Advice</h4><p> Our team of experienced real estate professionals is here to offer expert advice and guidance tailored to your unique needs and preferences.</p></div>
@@ -40,9 +40,12 @@ export default {
 </script>
 
 <style>
-/* p{
-  padding-top:20%
-} */
+#mission{
+  margin-top:8%
+}
+#info{
+  margin-left:2%
+}
 #aboutImg{
   background-image: url('https://i.ibb.co/Tq1qD4x/about-img3.jpg');
 color:white;

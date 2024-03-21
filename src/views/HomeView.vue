@@ -42,19 +42,19 @@ export default {
       background: linear-gradient(90deg, #FFFFFF 60%, #999966 40%);
 
 } */
-.aboutPage {
+/* .aboutPage {
   background: linear-gradient(to right, #8b8b7c 30%, white 20%, white 70%);
-}
+} */
 
 #home-img{
   width:75%;
   height:55vh
 }
 
-#img_cont{
+/* #img_cont{
   
 padding-left:25%
-}
+} */
 
  
 .column {
