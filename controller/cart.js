@@ -1,4 +1,4 @@
-import { getCart,addCart,delCart,getCarts} from "../models/cartDB.js"
+import { getCart,addCart,delCart,getCarts,clearUserCart} from "../models/cartDB.js"
 
 export default{
     getCart: async(req,res)=>{
@@ -24,9 +24,23 @@ export default{
           
     },
    
+   
     deleteCart: async (req,res)=> {
         await delCart(+req.params.id);
         res.send(await getCarts())
-       }
+       },
+
+       delUserCart: async (req, res) => {
+        try {
+                const  id = req.params.id
+                await clearUserCart(+id);
+                res.send(await getCarts());
+              
+            // res.json({message: 'Cart cleared successfully'});
+        } catch (error) {
+            console.error('Error in clearing the users cart:', error);
+            res.status(500).json({ error: 'Unable to clear the users cart'});
+        }
+    }
 } 
 

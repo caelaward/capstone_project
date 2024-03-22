@@ -13,7 +13,9 @@ router
         .get(controller.getCartItems)
         .post(controller.addCartItem)
         .delete(controller.deleteCart)
-   
-
+        
+     router
+        .route('/delete/:id')
+         .delete(controller.delUserCart)
 
 export default router

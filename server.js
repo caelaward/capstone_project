@@ -8,6 +8,7 @@ import cors from 'cors'
 import {auth,authenticate} from './middleware/authentication.js'
 import cookieParser from 'cookie-parser'
 
+
 config()
  
 
@@ -30,6 +31,7 @@ app.use('/products',productRouter)
 app.use('/users',userRouter)
 app.use('/login',auth,loginRouter)
 app.use('/cart',cartRouter)
+
 
 app.listen(PORT,()=>{
     console.log(`This is running on http://localhost:${PORT}`);
