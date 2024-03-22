@@ -27,6 +27,7 @@
     </tbody>
     </table>
      <p>Total Amount due:{{ totalAmount }}</p>
+     <button class="btn btn-danger" @click="delUserCart($cookies.get('userID'))">Clear Cart</button>
     </div>
    
   </div>
@@ -38,6 +39,11 @@ export default {
   methods:{
     delCartItem(cartID){
       this.$store.dispatch('deleteCartItem',cartID)
+     
+    },
+     delUserCart(){
+      const userID = $cookies.get('userID')
+      this.$store.dispatch('clearCart',userID)
      
     }
   },

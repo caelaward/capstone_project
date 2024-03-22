@@ -29,12 +29,11 @@
          <li class="nav-item">
             <router-link to="/products" class="nav-link text-white" href="products">Houses</router-link>
         </li>
+        
         <li class="nav-item">
         <router-link to="/contact" class="nav-link text-white" href="contact">Contact</router-link>
         </li>
-        <li class="nav-item">
-        <router-link to="/checkout" v-if="$cookies.get('jwt')" class="nav-link text-white" href="checkout">Checkout</router-link>
-      </li>
+        
       <li class="nav-item dropdown" >
           <a class="nav-link dropdown-toggle text-white"  role="button" data-bs-toggle="dropdown" aria-expanded="false" v-if="$cookies.get('userRole') == 'admin'">
             Admin
@@ -42,6 +41,7 @@
           <ul class="dropdown-menu" >
             <router-link to="/admin" class="nav-link "  href="admin">Products Admin</router-link>
             <router-link to="/user" class="nav-link "  href="user">Users Admin</router-link>
+           
           </ul>
         </li>
       <!-- <li class="nav-item">
@@ -60,15 +60,17 @@
          <li class="nav-item">
              <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button>
         </li>
-
         
-
-<!-- 
-        <button v-if="$cookies.get('jwt')" @click="logout" class="btn btn-dark" id="logoutBtn">Logout</button> -->
+        
       
       </div>
     </div>
   </div>
+        <li class="nav-item d-flex jusifiy-content-end">
+            <router-link to="/checkout" v-if="$cookies.get('jwt')" class="nav-link text-white" href="checkout"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+            </svg></router-link>
+         </li>
 </nav>
     
 

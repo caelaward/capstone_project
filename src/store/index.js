@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
 import axios from "axios";
 import router from "@/router";
-const BASE_URL = "http://localhost:8258";
-// const BASE_URL='https://capstone-project-0nzm.onrender.com'
+// const BASE_URL = "http://localhost:8258";
+const BASE_URL='https://capstone-project-0nzm.onrender.com'
 axios.defaults.withCredentials = true;
 
 export default createStore({
@@ -11,7 +11,7 @@ export default createStore({
     loggedIn: false,
     singleHouse: [],
     users: [],
-    singleUser:[],
+    singleUser: [],
     cart: [],
   },
   getters: {},
@@ -115,34 +115,36 @@ export default createStore({
       await axios.patch(BASE_URL + "/users/" + update.userID, update);
       window.location.reload();
     },
-    async getCart({commit},userID) {
-      let {data} = await axios.get(BASE_URL + '/cart/'+ userID)
+    async getCart({ commit }, userID) {
+      let { data } = await axios.get(BASE_URL + "/cart/" + userID);
       console.log(data);
-      commit('setCarts',data)
-     },
-    async addCartItem({ commit }, payload) {
-      let data=await axios.post(`${BASE_URL}/cart/${payload.prodID}?users=${payload.userID}`
-      );
-      console.log(data);
-      window.location.reload()
+      commit("setCarts", data);
     },
+  
+    async addtocart({ commit }, payload) {
+      let { data } = await axios.post(
+        `${BASE_URL}/cart/${payload.prodID}?users=${payload.userID}`
+      )
+    },
+    async clearCart({ commit }, userID) {
+      await axios.delete(BASE_URL + "/cart/delete/" + userID);
+    },
+    
     async deleteCartItem({ commit }, cartID) {
       try {
         // Check if cartID is valid before making the request
         if (cartID === undefined || cartID === null) {
           throw new Error("Invalid cartID");
         }
-    
+
         // Make the DELETE request to delete the cart item
         await axios.delete(BASE_URL + "/cart/" + cartID);
-    
+
         window.location.reload();
       } catch (error) {
         console.error("Error deleting cart item:", error);
-        
       }
     },
-    
   },
   modules: {},
 });

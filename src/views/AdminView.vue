@@ -97,7 +97,7 @@
 </template> 
 
 <script>
-import sweet from "sweetalert"
+import sweet from "sweetalert2"
 
 export default {
   data(){
@@ -124,7 +124,7 @@ export default {
     delHouse(prodID){
       this.$store.dispatch('deleteHouses',prodID)
       .then(()=>{
-        sweet({
+        sweet.fire({
         title: "Are you sure?",
         text: "You will not be able to recover this file!",
         type: "warning", 

@@ -48,12 +48,12 @@ const routes = [
   {
     path: '/user',
     name: 'user',
-    component: () => import( '../views/UserView.vue')
+    component: () => import( '../views/userView.vue')
   },
   {
     path: '/singleUser',
     name: 'singleUser',
-    component: () => import( '../views/userProfileView.vue')
+    component: () => import( '../views/UserProfileView.vue')
   },
   {
     path: '/register',

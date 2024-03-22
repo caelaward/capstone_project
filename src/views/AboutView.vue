@@ -41,7 +41,7 @@ export default {
 
 <style>
 #Middle_about{
-  background-color: lightgrey;
+  background-color: rgb(206, 197, 197);
 }
 #mission{
   margin-top:8%

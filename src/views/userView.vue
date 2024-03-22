@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import sweet from "sweetalert"
+import sweet from "sweetalert2"
 
 export default {
    data(){
@@ -106,22 +106,27 @@ export default {
   },
   methods:{
      delUsers(userID){
-      this.$store.dispatch('deleteUsers',userID)
-      .then(()=>{
-        sweet({
-        title: "Are you sure?",
-        text: "You will not be able to recover this file!",
-        type: "warning", 
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: true,
-      })
-      .then(() => {
-          // Reload the page after successful deletion
-          window.location.reload();
-        })
-      })
+      sweet.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085D6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    sweet.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+    this.$store.dispatch('deleteUsers', userID)
+    setTimeout(() => {
+              window.location.reload();
+             }, 1500);
+  }
+});
     },
       editUser(id){
         let edit={

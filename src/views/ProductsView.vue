@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import SpinnerComp from '../components/SpinnerComp.vue'
-import sweet from 'sweetalert'
+import SpinnerComp from '@/components/SpinnerComp.vue'
+import sweet from 'sweetalert2'
 export default {
   components:{
       SpinnerComp
@@ -61,9 +61,10 @@ export default {
         return h.prodName.toLowerCase().includes(found.toLowerCase())|| h.category.toLowerCase().includes(found.toLowerCase())
       })
       if(res.length===0){
-        sweet({
+        sweet.fire({
       title: "Error",
       text: "Item not found",
+      icon: "error"
     })
   }
       console.log(res);
@@ -74,8 +75,8 @@ export default {
     },
     addToCart(prodID){
       const userID = $cookies.get('userID')
-      this.$store.dispatch('addCartItem',{prodID,userID})
-      alert('hi')
+      this.$store.dispatch('addtocart',{prodID,userID})
+    
     },
      sortfunction(){
       let h = this.$store.state.houses

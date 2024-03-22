@@ -77,7 +77,7 @@ input {
   border-radius: 5px;
   border: 3px solid rgb(255, 254, 254);
   padding: 0.8em;
-  background: transparent;
+  background: white;
   /* font-family: 'Inter', sans-serif; */
   /* outline: none; */
 }
