@@ -21,7 +21,7 @@ const auth = async (req, res, next) => {
       // res.cookie('jwt',token,{httpOnly:false})
 
       res.cookie("jwt", token, {
-        httpOnly: false,
+        httpOnly: true,
         secure: true,
         sameSite: "none",
         maxAge: 3600000,
