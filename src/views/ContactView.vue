@@ -2,7 +2,7 @@
   <div class="contact pt-2">
    <h1>Contact us</h1>
     <div class="container-form" id="formContainer">
-          <form action="https://formspree.io/f/xrgwdqyv" target="_blank" method="post">
+          <form action="https://formspree.io/f/xrgwdqyv" target="_blank" method="post" @submit.prevent="submitForm">
             <div class="mb-3">
               <label for="fname" class="form-label">First name:</label>
               <input type="text" class="form-control" id="fname" name="fname" placeholder="Your name.." required />
@@ -32,8 +32,28 @@
 
 <script>
 export default {
+  methods: {
+    async submitForm() {
+      try {
+        const response = await axios.post('https://formspree.io/f/xrgwdqyv', this.formData);
+    console.log('Form submitted successfully:', response);
+    alert('Form submitted successfully!');
+    // Reset the form after successful submission
+    this.formData = {
+      name: '',
+      email: '',
+      message: ''
+    };
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
+    }
+  }
+        
+    }
 
-}
+
+
 </script>
 
 <style>

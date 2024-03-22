@@ -1,9 +1,12 @@
 <template>
   <div class="aboutPage">
     <div class="container-fluid" id="img_cont">
-
-    <h1>Welcome to BloubergLux</h1>
-      <img src="https://i.ibb.co/0Y2fV1c/homeImg.jpg" id="home-img">
+      <div id="HomeText">
+    <h1 class="text-white" >Welcome to BloubergLux</h1>
+    <button type="button" class="btn btn-outline-light me-2 mt-2"><router-link to="/contact" class="nav-link" href="contact">Contact</router-link></button>
+      <button type="button" class="btn btn-outline-light mt-2"><router-link to="/products" class="nav-link " href="products">Our Products</router-link></button>
+  </div>
+      <!-- <img src="https://i.ibb.co/0Y2fV1c/homeImg.jpg" id="home-img"> -->
     </div>
 
   </div>
@@ -38,25 +41,36 @@ export default {
 </script>
 
 <style scoped>
-/* .aboutPage{
-      background: linear-gradient(90deg, #FFFFFF 60%, #999966 40%);
 
-} */
-/* .aboutPage {
-  background: linear-gradient(to right, #8b8b7c 30%, white 20%, white 70%);
-} */
-
+/* https://i.ibb.co/0Y2fV1c/homeImg.jpg */
+#HomeText{
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:whitesmoke;
+  text-shadow: 1px 1px 1px white;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #F1F1F1; /* Grey text */
+  width: 50%; /* Full width */
+  padding: 55px; /* Some padding */
+  border-radius: 5px;
+}
+#img_cont{
+  background-image: url("https://i.ibb.co/0Y2fV1c/homeImg.jpg");
+   background-repeat: no-repeat;
+  background:cover;
+  background-position: center;
+  padding-top:2rem;
+  background-size: 100%;
+  height:100vh
+}
 #home-img{
   width:75%;
   height:55vh
 }
 
-/* #img_cont{
-  
-padding-left:25%
-} */
-
- 
 .column {
   flex: 1;
   margin: 0; /* Remove default margin */

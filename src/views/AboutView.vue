@@ -8,7 +8,7 @@
     <p>At BloubergLux, we're dedicated to helping you find your perfect home sweet home. Whether you're a first-time buyer, seasoned investor, or looking to sell your current property, we're here to guide you through every step of the journey.</p>
     </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5" id="Middle_about">
     <div class="col" id="mission">
       <h2>Our mission</h2>
      <p>We believe that everyone deserves a place they can truly call home. Our mission is to simplify the process of buying and selling houses by providing exceptional service, expert guidance, and personalized attention to each of our clients.</p>
@@ -40,11 +40,14 @@ export default {
 </script>
 
 <style>
+#Middle_about{
+  background-color: lightgrey;
+}
 #mission{
   margin-top:8%
 }
 #info{
-  margin-left:2%
+  margin-left:8%
 }
 #aboutImg{
   background-image: url('https://i.ibb.co/Tq1qD4x/about-img3.jpg');
