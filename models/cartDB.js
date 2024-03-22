@@ -47,16 +47,6 @@ const addCart = async ( prodID, userID) => {
 };
 
 
-// const delCart=async(cartID)=>{
-   
-//         // Delete the item from the cart
-//         await pool.query(`
-//             DELETE FROM cart
-//             WHERE cartID = ?
-//         `, [cartID]);
-
-// }
-
 const delCart = async(cartID)=> {
     const [cart] = await pool.query(`
     delete from cart where cartID =?
@@ -64,5 +54,6 @@ const delCart = async(cartID)=> {
     ) 
     return cart
 }
+
 
 export {getCart,addCart,delCart,getCarts}
