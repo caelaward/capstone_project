@@ -21,7 +21,7 @@ export default {
                 userName:'',
                 userSurname:'',
                 email:'',
-                // userRole:'',
+                userRole:'user',
                 password:''
             }
         },
