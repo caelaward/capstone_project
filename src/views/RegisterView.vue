@@ -6,7 +6,7 @@
     <input type="text" placeholder="username" name="userName" required v-model="userName">
     <input type="userSurname" placeholder="userSurname" name="userSurname" required v-model="userSurname">
     <input type="email" placeholder="email" name="email" required v-model="email">
-    <input type="userRole" placeholder="userRole" name="userRole" required v-model="userRole">
+    <!-- <input type="userRole" placeholder="userRole" name="userRole" required v-model="userRole"> -->
     <input type="password" placeholder="password" name="password" required v-model="password">
     <button class="signUpBtn" @click="submitData()">Register</button>
 </card>
@@ -21,7 +21,7 @@ export default {
                 userName:'',
                 userSurname:'',
                 email:'',
-                userRole:'',
+                // userRole:'',
                 password:''
             }
         },

@@ -53,7 +53,7 @@ const routes = [
   {
     path: '/singleUser',
     name: 'singleUser',
-    component: () => import( '../views/UserProfileView.vue')
+    component: () => import( '../views/userProfileView.vue')
   },
   {
     path: '/register',

@@ -34,7 +34,7 @@
         </div>
   </div>
   <div v-else>
-    <SpinnerComp/>
+    <spinnerComp/>
     </div>
    </div>
    </div>
@@ -42,11 +42,11 @@
 </template>
 
 <script>
-import SpinnerComp from '@/components/SpinnerComp.vue'
+import spinnerComp from '@/components/spinnerComp.vue'
 import sweet from 'sweetalert2'
 export default {
   components:{
-      SpinnerComp
+      spinnerComp
     },
   data(){
      return{
